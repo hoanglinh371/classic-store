@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 40px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.logo-container {
+  height: 100%;
+  padding: 25px;
+  width: 70px;
+}
+.logo-container .logo {
+  width: 100px;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 50%;
+}
+.nav-links-container .nav-link {
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.directories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.directory-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  flex: 1 1 auto;
+  height: 240px;
+  min-width: 30%;
+  overflow: hidden;
+  margin: 0 7.5px 15px;
+}
+.directory-item-container:hover {
+  cursor: pointer;
+}
+.directory-item-container:hover .bg-image {
+  transform: scale(1.1);
+  transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+.directory-item-container:hover .body-container {
+  opacity: 0.9;
+}
+.directory-item-container:first-child {
+  margin-right: 7.5px;
+}
+.directory-item-container:last-child {
+  margin-left: 7.5px;
+}
+.directory-item-container:nth-child(4), .directory-item-container:nth-child(5) {
+  height: 380px;
+}
+.directory-item-container .bg-image {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.directory-item-container .body-container {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: center;
+  opacity: 0.7;
+  padding: 0 25px;
+  position: absolute;
+}
+.directory-item-container .body-container h2 {
+  color: #4a4a4a;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 6px;
+  text-transform: capitalize;
+}
+.directory-item-container .body-container p {
+  font-family: cursive;
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 8px 0;
+}
+
+/*# sourceMappingURL=index.css.map */
