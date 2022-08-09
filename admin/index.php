@@ -12,5 +12,6 @@
 </body>
     <ul>
         <li><a href="./insert_product_form.php">Add a Product</a></li>
+        <li><a href="./view_products.php">All Product</a></li>
     </ul>
 </html>
