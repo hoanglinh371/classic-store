@@ -13,6 +13,49 @@ a {
   color: inherit;
 }
 
+.group {
+  margin: 45px 0;
+  position: relative;
+}
+.group .form-input {
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-radius: 0;
+  color: gray;
+  display: block;
+  font-size: 18px;
+  margin: 4px 0;
+  padding: 10px 10px 10px 5px;
+  width: 100%;
+}
+.group .form-input:focus {
+  outline: none;
+}
+.group .form-input:focus ~ .form-input-label {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+.group input[type=password] {
+  letter-spacing: 0.3em;
+}
+.group .form-input-label {
+  color: gray;
+  font-size: 16px;
+  font-weight: 400;
+  left: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  transition: all 0.3s ease;
+}
+.group .form-input-label.shrink {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+
 .header {
   display: flex;
   height: 70px;
@@ -109,6 +152,31 @@ a {
   font-size: 16px;
   font-weight: lighter;
   margin: 8px 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  width: 1200px;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+}
+.sign-in-form h2 {
+  margin: 10px 0;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+}
+.sign-up-form h2 {
+  margin: 10px 0;
 }
 
 /*# sourceMappingURL=index.css.map */

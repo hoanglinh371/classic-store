@@ -18,7 +18,7 @@
         <?php
             require_once './header.php';
             require_once './connect.php';
-            $sql = 'SELECT * FROM directories';
+            $sql = "SELECT * FROM directories";
             $directories = mysqli_query($connect, $sql);
         ?>
 
