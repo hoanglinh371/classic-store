@@ -1,5 +1,5 @@
 <?php
-    require '../connect.php';
+    require_once '../configs/connect.php';
 
     $name = $_POST['name'];
     $image_url = $_POST['image_url'];

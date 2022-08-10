@@ -1,5 +1,5 @@
 <?php
-    require_once './connect.php';
+    require_once '../configs/connect.php';
     $display_name = $_POST['display_name'];
     $email = $_POST['email'];
     $password = hash('sha256', $_POST['password']);

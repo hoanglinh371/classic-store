@@ -10,7 +10,7 @@
 
 <body>
     <?php
-        require_once '../connect.php';
+        require_once '../configs/connect.php';
         $sql = "SELECT * from hats";
         $hats = mysqli_query($connect, $sql);
     ?>

@@ -1,5 +1,5 @@
 <?php
-    require_once '../connect.php';
+    require_once '../configs/connect.php';
     
     $id = $_POST['id'];
     $name = $_POST['name'];

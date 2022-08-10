@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-        require_once '../connect.php';
+        require_once '../configs/connect.php';
         $id = $_GET['id'];
         $sql = "SELECT * from hats WHERE id = '$id'";
         $hats = mysqli_query($connect, $sql);
