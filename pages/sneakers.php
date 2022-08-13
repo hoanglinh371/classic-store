@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css?v=1">
     <title>Document</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         $sneakers = mysqli_query($connect, $sql);
     ?>
     
-    <div class="hats-container">
+    <div class="products-container">
         <?php foreach ($sneakers as $sneaker) { ?>
             <div class="product-card">
                 <img src="<?php echo $sneaker['image_url']?>" alt="image" class="product-card__image">

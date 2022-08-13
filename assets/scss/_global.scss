@@ -14,12 +14,12 @@ a {
     color: inherit;
 }
 
-.hats-container {
+.products-container {
     grid-column-gap: 10px;
     grid-row-gap: 50px;
     -webkit-column-gap: 10px;
     column-gap: 10px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     row-gap: 50px;
 }
