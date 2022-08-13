@@ -10,25 +10,25 @@
 </head>
 <body>
     <?php
-        require_once '../components/header.php';
         require_once '../configs/connect.php';
-        $sql = "SELECT * FROM hats";
-        $hats = mysqli_query($connect, $sql);
+        require_once '../components/header.php';
+        $sql = 'SELECT * from sneakers';
+        $sneakers = mysqli_query($connect, $sql);
     ?>
-
-    <div class="products-container">
-        <?php foreach ($hats as $hat) { ?>
+    
+    <div class="hats-container">
+        <?php foreach ($sneakers as $sneaker) { ?>
             <div class="product-card">
-                <img src="<?php echo $hat['image_url']?>" alt="image" class="product-card__image">
+                <img src="<?php echo $sneaker['image_url']?>" alt="image" class="product-card__image">
                 <div class="product-card__footer">
-                    <span class="product-card__name"><?php echo $hat['name'] ?></span>
-                    <span class="product-card__price"><?php echo $hat['price'] ?></span>
+                    <span class="product-card__name"><?php echo $sneaker['name'] ?></span>
+                    <span class="product-card__price"><?php echo $sneaker['price'] ?></span>
                 </div>
                 <button type="button" class="button inverted">Add to Cart</button>
             </div>
         <?php } ?>
     </div>
-
-    <?php mysqli_close($connect) ?>
+    
+    <?php mysqli_close($connect); ?>
 </body>
 </html>

@@ -11,8 +11,8 @@
 <body>
     <?php
         require_once '../configs/connect.php';
-        $sql = "SELECT * from hats";
-        $hats = mysqli_query($connect, $sql);
+        $sql = "SELECT * FROM jackets JOIN hats";
+        $products = mysqli_query($connect, $sql);
     ?>
     <table border="1" width="100%">
         <tr class="">
@@ -22,15 +22,15 @@
             <th class="">Image</th>
             <th colspan="2">Actions</th>
         </tr>
-        <?php foreach ($hats as $hat) { ?>
+        <?php foreach ($products as $product) { ?>
             <tr>
-                <td><?php echo $hat['id'] ?></td>
-                <td><?php echo $hat['name'] ?></td>
-                <td><?php echo $hat['price'] ?></td>
+                <td><?php echo $product['id'] ?></td>
+                <td><?php echo $product['name'] ?></td>
+                <td><?php echo $product['price'] ?></td>
                 <td>
-                    <img src="<?php echo $hat['image_url'] ?>" alt="<?php echo $hat['name'] ?>" width="120" height="140">
+                    <img src="<?php echo $product['image_url'] ?>" alt="<?php echo $product['name'] ?>" width="120" height="140">
                 </td>
-                <td><a href="./edit_product.php?id=<?php echo $hat['id']?>">Edit</a></td>
+                <td><a href="./edit_product.php?id=<?php echo $product['id']?>">Edit</a></td>
                 <td><a href="./delete_product_process.php">Delete</a></td>
             </tr>
         <?php } ?>
