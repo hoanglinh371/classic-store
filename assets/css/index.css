@@ -15,6 +15,10 @@ a {
   color: inherit;
 }
 
+ul li {
+  list-style: none;
+}
+
 .products-container {
   grid-column-gap: 10px;
   grid-row-gap: 50px;
@@ -23,6 +27,39 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 50px;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 300px auto;
+  grid-template-areas: "header header" "sidebar main";
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar__link {
+  font-size: 15px;
+  color: #676b84;
+  padding: 15px 25px 15px 24px;
+  background: #fff;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.sidebar__menu {
+  padding-left: 0;
 }
 
 .group {
@@ -163,7 +200,7 @@ a {
 
 .header__logo {
   height: 100%;
-  padding: 25px;
+  padding: 10px;
   width: 70px;
 }
 

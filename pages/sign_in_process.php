@@ -14,6 +14,7 @@
         $user = mysqli_fetch_array($res);
         $_SESSION['id'] = $user['id'];
         $_SESSION['display_name'] = $user['display_name'];
+        $_SESSION['role'] = $user['role'];
         
         header('location:/admin');
         exit;

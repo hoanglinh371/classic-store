@@ -14,7 +14,6 @@
 <body>
     <?php
         require_once '../configs/connect.php';
-        require_once '../components/header.php';
         
         // Get all directories
         $sql = "SELECT * FROM directories";
@@ -34,7 +33,7 @@
         $skip = $product_per_page * ($page - 1);
         
         // Show products
-        $sql = "SELECT products.id, products.name, products.image_url, products.price, directories.title
+        $sql = "SELECT products.*, directories.title
                 FROM products
                 INNER JOIN directories
                 ON directories.id = products.directory_id
@@ -43,65 +42,82 @@
                 OFFSET $skip";
         $products = mysqli_query($connect, $sql);
     ?>
-    <div class="filters">
-        <form method="get">
-            <div class="input-group mb-3">
-                <label for="search" class="input-group-text">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </label>
-                <input type="text" id="search" class="form-control" name="search" placeholder="Search here..."">
+    
+    <div class="admin-layout">
+        <div class="header">
+            <?php require_once '../components/header.php'; ?>
+        </div>
+        <div class="sidebar">
+            <?php require_once '../components/sidebar.php'; ?>
+        </div>
+        <div class="main">
+            <div class="filters">
+                <form method="get">
+                    <div class="input-group mb-3">
+                        <label for="search" class="input-group-text">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </label>
+                        <input type="text" id="search" class="form-control" name="search" placeholder="Search here..."">
+                    </div>
+                </form>
             </div>
-        </form>
+            <table class="table table-bordered table-striped align-middle text-center">
+                <tr class="">
+                    <th class="">#</th>
+                    <th class="">Name</th>
+                    <th class="">Directory</th>
+                    <th class="">Price</th>
+                    <th class="">Image</th>
+                    <th class="">Created At</th>
+                    <th class="">Updated At</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+                <?php foreach ($products as $index => $product) { ?>
+                    <tr>
+                        <td><?php echo $index ?></td>
+                        <td><?php echo $product['name'] ?></td>
+                        <td><?php echo ucfirst($product['title']) ?></td>
+                        <td><?php echo '$' . $product['price'] ?></td>
+                        <td>
+                            <img src="<?php echo $product['image_url'] ?>" alt="<?php echo $product['name'] ?>"
+                                 width="96"
+                                 height="112">
+                        </td>
+                        <td><?php echo $product['created_at'] ?></td>
+                        <td><?php echo $product['updated_at'] ?></td>
+                        <td>
+                            <a title="Edit" href="./edit_product.php?id=<?php echo $product['id'] ?>">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Delete" href="./delete_product_process.php?id=<?php echo $product['id'] ?>">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    <?php for ($i = 0; $i < $total_pages; $i++) { ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?page=<?php echo $i + 1 ?>&search=<?php echo $search ?>">
+                                <?php echo $i + 1 ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <table class="table table-bordered table-striped align-middle text-center">
-        <tr class="">
-            <th class="">#</th>
-            <th class="">Name</th>
-            <th class="">Directory</th>
-            <th class="">Price</th>
-            <th class="">Image</th>
-            <th colspan="2">Actions</th>
-        </tr>
-        <?php foreach ($products as $index => $product) { ?>
-            <tr>
-                <td><?php echo $index ?></td>
-                <td><?php echo $product['name'] ?></td>
-                <td><?php echo ucfirst($product['title']) ?></td>
-                <td><?php echo '$' . $product['price'] ?></td>
-                <td>
-                    <img src="<?php echo $product['image_url'] ?>" alt="<?php echo $product['name'] ?>" width="96"
-                         height="112">
-                </td>
-                <td>
-                    <a title="Edit" href="./edit_product.php?id=<?php echo $product['id'] ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                    </a>
-                </td>
-                <td>
-                    <a title="Delete" href="./delete_product_process.php?id=<?php echo $product['id'] ?>">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
-    <nav>
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <?php for ($i = 0; $i < $total_pages; $i++) { ?>
-                <li class="page-item">
-                    <a class="page-link" href="?page=<?php echo $i + 1 ?>&search=<?php echo $search ?>">
-                        <?php echo $i + 1 ?>
-                    </a>
-                </li>
-            <?php } ?>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    
     <?php mysqli_close($connect) ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
