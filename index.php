@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./assets/css/index.css?v=1">
+    <link rel="stylesheet" href="./assets/css/index.css?v=2">
     <title>Classic Store</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <div class="directories-container">
         <?php foreach ($directories as $directory) { ?>
-            <div class="directory-item">
+            <a href="<?php echo 'pages/' . $directory['title'] . '.php' ?>" class="directory-item">
                 <div
                     class="directory-item__bg-image"
                     style="background-image: url(<?php echo $directory['image_url']?>)"
@@ -27,7 +27,7 @@
                     <h2><?php echo $directory['title']?></h2>
                     <p>Shop Now</p>
                 </div>
-            </div>
+            </a>
         <?php } ?>
     </div>
 

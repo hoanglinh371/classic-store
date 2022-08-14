@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (empty($_SESSION['id']) || $_SESSION['id'] != 1) {
+        header('location:../pages/login.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

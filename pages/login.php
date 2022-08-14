@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css?v=2">
     <title>Document</title>
 </head>
 <body>
@@ -27,7 +27,9 @@
                     <label for="sign_in_password" class="form-input-label">Password</label>
                 </div>
                 
-                <button type="submit" class="button">SIGN IN</button>
+                <div class="buttons-container">
+                    <button type="submit" class="button">SIGN IN</button>
+                </div>
             </form>
         </div>
         
