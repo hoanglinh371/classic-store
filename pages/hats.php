@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/index.css?v=1">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <title>Document</title>
 </head>
 <body>
@@ -24,7 +24,9 @@
                     <span class="product-card__name"><?php echo $hat['name'] ?></span>
                     <span class="product-card__price"><?php echo $hat['price'] ?></span>
                 </div>
-                <button type="button" class="button inverted">Add to Cart</button>
+                <a href="./add_to_cart_process.php?id=<?php echo $hat['id'] ?>" class="button inverted">
+                    Add to Cart
+                </a>
             </div>
         <?php } ?>
     </div>
