@@ -64,6 +64,14 @@
             </div>
         <?php } ?>
         <span class="total">Total: <?php echo '$' . $total ?></span>
+        <form method="post" action="./order_process.php">
+            <input type="text" name="name">
+            <input type="text" name="phone">
+            <input type="text" name="address">
+    
+            <button class="total button">Order Now</button>
+        </form>
+        
     </div>
 </body>
 </html>
