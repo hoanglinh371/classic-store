@@ -35,6 +35,12 @@
                     <span>Users</span>
                 </a>
             </li>
+            <li class="sidebar__item">
+                <a href="../admin/view_roles.php" class="sidebar__link">
+                    <i class="fa-solid fa-key"></i>
+                    <span>Roles</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </body>

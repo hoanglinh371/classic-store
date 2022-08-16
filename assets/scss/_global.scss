@@ -18,14 +18,17 @@ ul li {
     list-style: none;
 }
 
+.shop-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .products-container {
-    grid-column-gap: 10px;
-    grid-row-gap: 50px;
-    -webkit-column-gap: 10px;
-    column-gap: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 50px;
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 40px;
 }
 
 .admin-layout {
@@ -45,6 +48,7 @@ ul li {
 
 .main {
     grid-area: main;
+    padding: 30px;
 }
 
 .sidebar__link {
