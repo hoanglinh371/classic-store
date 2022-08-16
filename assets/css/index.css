@@ -62,6 +62,14 @@ ul li {
   padding-left: 0;
 }
 
+.fa-pencil {
+  color: green;
+}
+
+.fa-trash {
+  color: red;
+}
+
 .group {
   margin: 45px 0;
   position: relative;
@@ -184,10 +192,6 @@ ul li {
 }
 .product-card .product-card__footer .product-card__name {
   margin-bottom: 15px;
-  width: 90%;
-}
-.product-card .product-card__footer .product-card__price {
-  width: 10%;
 }
 
 .header {

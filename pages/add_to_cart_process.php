@@ -4,7 +4,7 @@
     
     if (empty($_SESSION['cart'][$id])) {
         require_once '../configs/connect.php';
-        $sql = "SELECT * FROM hats WHERE id = '$id'";
+        $sql = "SELECT * FROM products WHERE id = '$id'";
         $res = mysqli_query($connect, $sql);
         $product = mysqli_fetch_array($res);
         

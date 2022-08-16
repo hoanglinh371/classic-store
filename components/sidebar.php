@@ -12,25 +12,25 @@
     <nav class="sidebar">
         <ul class="sidebar__menu">
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="../admin/dashboard.php" class="sidebar__link">
                     <i class="fa-solid fa-house"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="../admin/view_directories.php" class="sidebar__link">
                     <i class="fa-solid fa-list"></i>
                     <span>Directories</span>
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="../admin/view_products.php" class="sidebar__link">
                     <i class="fa-solid fa-database"></i>
                     <span>Products</span>
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="../admin/view_users.php" class="sidebar__link">
                     <i class="fa-solid fa-user"></i>
                     <span>Users</span>
                 </a>

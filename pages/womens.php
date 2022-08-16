@@ -12,19 +12,21 @@
     <?php
         require_once '../components/header.php';
         require_once '../configs/connect.php';
-        $sql = "SELECT * FROM womens";
-        $womens = mysqli_query($connect, $sql);
+        $sql = "SELECT * FROM products WHERE directory_id = 4";
+        $items = mysqli_query($connect, $sql);
     ?>
     
     <div class="products-container">
-        <?php foreach ($womens as $women) { ?>
+        <?php foreach ($items as $item) { ?>
             <div class="product-card">
-                <img src="<?php echo $women['image_url']?>" alt="image" class="product-card__image">
+                <img src="<?php echo $item['image_url'] ?>" alt="image" class="product-card__image">
                 <div class="product-card__footer">
-                    <span class="product-card__name"><?php echo $women['name'] ?></span>
-                    <span class="product-card__price"><?php echo $women['price'] ?></span>
+                    <span class="product-card__name"><?php echo $item['name'] ?></span>
+                    <span class="product-card__price"><?php echo '$' . $item['price'] ?></span>
                 </div>
-                <button type="button" class="button inverted">Add to Cart</button>
+                <a href="./add_to_cart_process.php?id=<?php echo $item['id'] ?>" class="button inverted">
+                    Add to Cart
+                </a>
             </div>
         <?php } ?>
     </div>

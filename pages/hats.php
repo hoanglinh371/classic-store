@@ -12,25 +12,25 @@
     <?php
         require_once '../components/header.php';
         require_once '../configs/connect.php';
-        $sql = "SELECT * FROM hats";
-        $hats = mysqli_query($connect, $sql);
+        $sql = "SELECT * FROM products WHERE directory_id = 1";
+        $items = mysqli_query($connect, $sql);
     ?>
-
+    
     <div class="products-container">
-        <?php foreach ($hats as $hat) { ?>
+        <?php foreach ($items as $item) { ?>
             <div class="product-card">
-                <img src="<?php echo $hat['image_url']?>" alt="image" class="product-card__image">
+                <img src="<?php echo $item['image_url'] ?>" alt="image" class="product-card__image">
                 <div class="product-card__footer">
-                    <span class="product-card__name"><?php echo $hat['name'] ?></span>
-                    <span class="product-card__price"><?php echo $hat['price'] ?></span>
+                    <span class="product-card__name"><?php echo $item['name'] ?></span>
+                    <span class="product-card__price"><?php echo '$' . $item['price'] ?></span>
                 </div>
-                <a href="./add_to_cart_process.php?id=<?php echo $hat['id'] ?>" class="button inverted">
+                <a href="./add_to_cart_process.php?id=<?php echo $item['id'] ?>" class="button inverted">
                     Add to Cart
                 </a>
             </div>
         <?php } ?>
     </div>
-
+    
     <?php mysqli_close($connect) ?>
 </body>
 </html>

@@ -61,5 +61,17 @@
             </form>
         </div>
     </div>
+    
+    <script type="text/javascript">
+        const formInputEls = document.querySelectorAll('.form-input');
+        const formInputLabelEls = document.querySelectorAll('.form-input-label');
+        formInputLabelEls.forEach(el => {
+            if (el.control.value > 0) {
+                el.classList.add('shrink');
+            } else {
+                el.classList.remove('shrink');
+            }
+        });
+    </script>
 </body>
 </html>
