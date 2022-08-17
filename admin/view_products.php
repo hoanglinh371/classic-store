@@ -14,15 +14,15 @@
 <body>
     <?php
         require_once '../configs/connect.php';
-        
+
         // Get all directories
         $sql = "SELECT * FROM directories";
         $directories = mysqli_query($connect, $sql);
-        
+
         // Filter
         $search = $_GET['search'] ?? '';
         $category = $_GET['category'] ?? '';
-        
+
         // Paginate
         $page = $_GET['page'] ?? 1;
         $sql = "SELECT * FROM products
@@ -32,7 +32,7 @@
         $product_per_page = 6;
         $total_pages = ceil($total_products / $product_per_page);
         $skip = $product_per_page * ($page - 1);
-        
+
         // Show products
         $sql = "SELECT products.*, directories.title
                 FROM products
@@ -43,7 +43,7 @@
                 OFFSET $skip";
         $products = mysqli_query($connect, $sql);
     ?>
-    
+
     <div class="admin-layout">
         <div class="header">
             <?php require_once '../components/header.php'; ?>
@@ -102,12 +102,10 @@
                                  height="105">
                         </td>
                         <td>
-                            <?php echo date("d/m/Y", strtotime($product['created_at'])) ?>
-                            <?php echo date("h:i A", strtotime($product['created_at'])) ?>
+                            <?php echo date("d/m/Y h:i A", strtotime($product['created_at'])) ?>
                         </td>
                         <td>
-                            <?php echo date("d/m/Y", strtotime($product['updated_at'])) ?>
-                            <?php echo date("h:i A", strtotime($product['updated_at'])) ?>
+                            <?php echo date("d/m/Y h:i A", strtotime($product['updated_at'])) ?>
                         </td>
                         <td>
                             <span
@@ -159,7 +157,7 @@
             </nav>
         </div>
     </div>
-    
+
     <!-- Add Modal -->
     <div
         class="modal fade"
@@ -221,7 +219,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Edit Modal -->
     <div
         class="modal fade"
@@ -284,7 +282,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Delete Modal -->
     <div
         class="modal fade"
@@ -313,82 +311,12 @@
             </div>
         </div>
     </div>
-    
+
     <?php mysqli_close($connect) ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#add-product-form').submit(function (e) {
-                // e.preventDefault();
-                $.ajax({
-                    url: './insert_product_process.php',
-                    type: 'POST',
-                    dataType: 'JSON',
-                    data: $(this).serializeArray(),
-                }).done(function () {
-                    alert("Add successfully");
-                });
-            });
-            
-            $('#edit-product-form').submit(function (e) {
-                // e.preventDefault();
-                $.ajax({
-                    url: './edit_product_process.php',
-                    type: 'POST',
-                    dataType: 'JSON',
-                    data: $(this).serializeArray(),
-                    success: function () {
-                        alert("Update successfully");
-                    }
-                });
-            })
-            
-            $('#delete-product-form').submit(function (e) {
-                // e.preventDefault();
-                $.ajax({
-                    url: './delete_product_process.php',
-                    type: 'POST',
-                    dataType: 'JSON',
-                    data: $(this).serializeArray(),
-                    success: function () {
-                        alert("Delete successfully");
-                    }
-                });
-            })
-            
-            $(document).on('click', '#edit-product-button', function () {
-                const id = $(this).attr('data-id');
-                $.ajax({
-                    url: './get_data.php',
-                    method: 'POST',
-                    data: {id: id},
-                    dataType: 'JSON',
-                    success: function (data) {
-                        $('input[name="product_id"]').val(data.id);
-                        $('input[name="product_name"]').val(data.name);
-                        $('input[name="product_category_id"]').val(data.directory_id);
-                        $('input[name="product_image_url"]').val(data.image_url);
-                        $('input[name="product_price"]').val(data.price);
-                    }
-                });
-            })
-            
-            $(document).on('click', '#delete-product-button', function () {
-                const id = $(this).attr('data-id');
-                $.ajax({
-                    url: './get_data.php',
-                    method: 'POST',
-                    data: {id: id},
-                    dataType: 'JSON',
-                    success: function (data) {
-                        $('input[name="product_id"]').val(data.id);
-                    }
-                });
-            })
-        })
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/script.js" type="text/javascript"></script>
 </body>
 
 </html>

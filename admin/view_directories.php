@@ -13,12 +13,12 @@
 <body>
     <?php
         require_once '../configs/connect.php';
-        
+
         // Get all directories
         $sql = "SELECT * FROM directories";
         $directories = mysqli_query($connect, $sql);
     ?>
-    
+
     <div class="admin-layout">
         <div class="header">
             <?php require_once '../components/header.php'; ?>
@@ -40,15 +40,19 @@
                         <td><?php echo $index ?></td>
                         <td><?php echo ucfirst($directory['title']) ?></td>
 
-                        <td><?php echo $directory['created_at'] ?></td>
-                        <td><?php echo $directory['updated_at'] ?></td>
                         <td>
-                            <a title="Edit" href="./edit_directory.php?id=<?php echo $directory['id'] ?>">
+                            <?php echo date("d/m/Y h:i A", strtotime($directory['created_at'])) ?>
+                        </td>
+                        <td>
+                            <?php echo date("d/m/Y h:i A", strtotime($directory['updated_at'])) ?>
+                        </td>
+                        <td>
+                            <a title="Edit" href="#">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
                         </td>
                         <td>
-                            <a title="Delete" href="./delete_directory_process.php?id=<?php echo $directory['id'] ?>">
+                            <a title="Delete" href="#">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </td>
@@ -57,9 +61,9 @@
             </table>
         </div>
     </div>
-    
+
     <?php mysqli_close($connect) ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

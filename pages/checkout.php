@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/index.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         $cart_items = $_SESSION['cart'] ?? [];
         $total = 0;
     ?>
-    
+
     <div class="checkout-container">
         <div class="checkout__header">
             <div class="checkout__header-block">
@@ -42,13 +42,13 @@
                 </div>
                 <span class="name"><?php echo $cart_item['name'] ?></span>
                 <div class="quantity">
-                    <a href="./update_quantity.php?id=<?php echo $id ?>&type=dec" class="arrow">
+                    <a href="update_quantity_process.php?id=<?php echo $id ?>&type=dec" class="arrow">
                         <i class="fa-solid fa-angle-left"></i>
                     </a>
                     <span class="value">
                         <?php echo $cart_item['quantity'] ?>
                     </span>
-                    <a href="./update_quantity.php?id=<?php echo $id ?>&type=inc" class="arrow">
+                    <a href="update_quantity_process.php?id=<?php echo $id ?>&type=inc" class="arrow">
                         <i class="fa-solid fa-angle-right"></i>
                     </a>
                 </div>
@@ -64,14 +64,7 @@
             </div>
         <?php } ?>
         <span class="total">Total: <?php echo '$' . $total ?></span>
-        <form method="post" action="./order_process.php">
-            <input type="text" name="name">
-            <input type="text" name="phone">
-            <input type="text" name="address">
-    
-            <button class="total button">Order Now</button>
-        </form>
-        
     </div>
+    <?php mysqli_close($connect); ?>
 </body>
 </html>

@@ -19,59 +19,6 @@ ul li {
   list-style: none;
 }
 
-.shop-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.products-container {
-  display: grid;
-  grid-column-gap: 30px;
-  grid-row-gap: 50px;
-  grid-template-columns: repeat(5, 1fr);
-  margin-bottom: 40px;
-}
-
-.admin-layout {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 300px auto;
-  grid-template-areas: "header header" "sidebar main";
-}
-
-.header {
-  grid-area: header;
-}
-
-.sidebar {
-  grid-area: sidebar;
-}
-
-.main {
-  grid-area: main;
-  padding: 30px;
-}
-
-.sidebar__link {
-  font-size: 15px;
-  color: #676b84;
-  padding: 15px 25px 15px 24px;
-  background: #fff;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.sidebar__menu {
-  padding-left: 0;
-}
-
-.filters-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .group {
   margin: 45px 0;
   position: relative;
@@ -157,6 +104,14 @@ ul li {
   border: none;
 }
 
+.products-container {
+  display: grid;
+  grid-column-gap: 30px;
+  grid-row-gap: 50px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 40px;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -194,6 +149,15 @@ ul li {
 }
 .product-card .product-card__footer .product-card__name {
   margin-bottom: 15px;
+}
+
+.shop-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-title {
+  font-family: cursive;
 }
 
 .header {
@@ -433,6 +397,43 @@ ul li {
 .cart-container .remove-btn {
   padding-left: 12px;
   cursor: pointer;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 300px auto;
+  grid-template-areas: "header header" "sidebar main";
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+.sidebar .sidebar__link {
+  font-size: 15px;
+  color: #676b84;
+  padding: 15px 25px 15px 24px;
+  background: #fff;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.sidebar .sidebar__menu {
+  padding-left: 0;
+}
+
+.main {
+  grid-area: main;
+  padding: 30px;
+}
+.main .filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /*# sourceMappingURL=index.css.map */

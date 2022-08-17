@@ -1,0 +1,40 @@
+.admin-layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 300px auto;
+    grid-template-areas: 'header header' 'sidebar main';
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+
+    .sidebar__link {
+        font-size: 15px;
+        color: #676b84;
+        padding: 15px 25px 15px 24px;
+        background: #fff;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .sidebar__menu {
+        padding-left: 0;
+    }
+}
+
+.main {
+    grid-area: main;
+    padding: 30px;
+
+    .filters-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+

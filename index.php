@@ -18,7 +18,7 @@
 
     <div class="directories-container">
         <?php foreach ($directories as $directory) { ?>
-            <a href="<?php echo 'pages/' . $directory['title'] . 's' . '.php' ?>" class="directory-item">
+            <a href="<?php echo '/shop/' . $directory['title'] . '.php' ?>" class="directory-item">
                 <div
                     class="directory-item__bg-image"
                     style="background-image: url(<?php echo $directory['image_url']?>)"

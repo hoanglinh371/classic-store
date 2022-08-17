@@ -12,5 +12,5 @@
     } else {
         $_SESSION['cart'][$id]['quantity']++;
     }
-    
-    header('location:./checkout.php');
+
+    header('location:checkout.php');
