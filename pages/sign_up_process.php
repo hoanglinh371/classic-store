@@ -1,5 +1,8 @@
 <?php
     require_once '../configs/connect.php';
+    require_once '../configs/mail.php';
+    require_once '../configs/mail_template.php';
+    
     $display_name = $_POST['display_name'];
     $email = $_POST['email'];
     $password = hash('sha256', $_POST['password']);
@@ -13,3 +16,8 @@
     session_start();
     $_SESSION['id'] = $id;
     $_SESSION['display_name'] = $display_name;
+    
+    $content = register_success($display_name);
+    send_mail($display_name, $email, 'Register Successfully', $content);
+    
+    header('location:../index.php');

@@ -11,7 +11,7 @@
     
     $res = mysqli_query($connect, $sql);
     $user = mysqli_fetch_array($res);
-    $role = $res['role'];
+    $role = $res['role_id'];
     
     /*
      * 0 - Normal User

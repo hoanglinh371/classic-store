@@ -65,10 +65,8 @@ ul li {
     padding-left: 0;
 }
 
-.fa-pencil {
-    color: green;
-}
-
-.fa-trash {
-    color: red;
+.filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }

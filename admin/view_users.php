@@ -47,8 +47,14 @@
                         <td><?php echo $user['display_name'] ?></td>
                         <td><?php echo $user['email'] ?></td>
                         <td><?php echo $user['role_name'] ?></td>
-                        <td><?php echo $user['created_at'] ?></td>
-                        <td><?php echo $user['updated_at'] ?></td>
+                        <td>
+                            <?php echo date("d/m/Y", strtotime($user['created_at'])) ?>
+                            <?php echo date("h:i A", strtotime($user['created_at'])) ?>
+                        </td>
+                        <td>
+                            <?php echo date("d/m/Y", strtotime($user['updated_at'])) ?>
+                            <?php echo date("h:i A", strtotime($user['updated_at'])) ?>
+                        </td>
                         <td>
                             <a title="Edit" href="./edit_product.php?id=<?php echo $user['id'] ?>">
                                 <i class="fa-solid fa-pencil"></i>
